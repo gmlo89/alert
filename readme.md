@@ -39,6 +39,23 @@ Composer will download the package. After the package is downloaded, open `app/c
         'Innsoft\Alert\AlertServiceProvider',
     ),
 
+Example
+----
+
+On app/routes.php
+
+    Route::get('/', function()
+    {
+        Alert::message('Welcome to this app!', 'success');
+        return View::make('hello');
+    });
+    
+On app/views/hello.blade.php add this:
+
+    {{ Alert::render() }}
+
+**don't forget add [bootstrap](http://getbootstrap.com/) files to your project.
+
 License
 ----
 
