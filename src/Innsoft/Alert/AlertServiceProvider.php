@@ -28,7 +28,17 @@ class AlertServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		$this->app['alert'] = $this->app->share(function($app)
+        {
+            $alertBuilder = new Alert($app['view'], $app['session.store']);
+            return $alertBuilder;
+        });
+
+        $this->app->booting(function()
+		{
+		  	$loader = \Illuminate\Foundation\AliasLoader::getInstance();
+		  	$loader->alias('Alert', 'Innsoft\Alert\Facades\Alert');
+		});
 	}
 
 	/**
