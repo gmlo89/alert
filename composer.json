@@ -1,6 +1,6 @@
 {
     "name": "innsoft/alert",
-    "description": "",
+    "description": "Alerts for laravel 4",
     "authors": [
         {
             "name": "Giovanni Lopez",
